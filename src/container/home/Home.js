@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-
+import Bg from '../../assets/cr.jpg'
 export default class Home extends Component {
     render() {
         return (
@@ -12,7 +12,7 @@ export default class Home extends Component {
                 <div className="container-fluid">
                     <h2>Selamat Datang Di Website Pengelolaan data</h2>
                     <div className="row d-flex justify-content-center ">
-                        <img src="https://wallpaperaccess.com/full/1614778.jpg" style={{ width: 100, height: 100 }} />
+                        <img src={Bg} style={{ width: 800, height: 300 }} />
                     </div>
                 </div>
 

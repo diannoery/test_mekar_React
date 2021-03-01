@@ -48,3 +48,20 @@ export const pendidikan = async () => {
 
     return await res.data;
 };
+
+
+/// API Login
+
+export const loginAdmin = async (login) => {
+
+    const res = await axios.post(`/login`, login);
+
+    return await res.data;
+};
+
+export const register = async (user) => {
+
+    const res = await axios.post(`/register`, user);
+
+    return await res.data;
+};
