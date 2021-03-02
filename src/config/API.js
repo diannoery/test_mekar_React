@@ -8,6 +8,13 @@ export const getUser = async () => {
     return await res.data;
 };
 
+export const getUserPage = async (page, limit) => {
+
+    const res = await axios.get(`/users/${page}/${limit}`);
+
+    return await res.data;
+};
+
 
 export const addtUser = async (user) => {
 

@@ -6,7 +6,8 @@ import { addtUser, deleteUser, getUser } from '../../config/API';
 import ModalUser from '../../components/ModalInfoUser';
 import LoadingPage from '../../assets/loading.gif'
 import Swal from 'sweetalert2';
-const UserList = () => {
+const UserList = (props) => {
+    const { userPage } = props
     const [userList, setUserList] = useState([]);
     const [showDetail, setShowDetail] = useState(false)
     const [formType, setFormType] = useState("")
@@ -14,17 +15,21 @@ const UserList = () => {
     const [userDetail, setUserDetail] = useState({})
 
     const loadData = () => {
-        getUser().then((res) => {
-            setUserList(res.Data);
+        // getUser().then((res) => {
+        //     setUserList(res.Data);
+        //     setLoading(true)
+        // });
+
+        if (userPage != null) {
             setLoading(true)
-        });
+        }
     };
 
     useEffect(() => {
 
         loadData();
 
-    }, [userList]);
+    }, [userPage]);
 
     const detailUser = (list, detail) => {
 
@@ -79,7 +84,7 @@ const UserList = () => {
     }
 
 
-    const user = userList.map((list) => (
+    const user = userPage.map((list) => (
         <tr>
             <td> {list.nik} </td>
             <td> {list.nama} </td>
@@ -100,7 +105,7 @@ const UserList = () => {
             </div>
 
             <div className="row d-flex justify-content-center">
-                {isLoading ? <Table striped >
+                {isLoading ? <Table bordered >
                     <thead>
                         <tr>
                             <th >Nomor KTP</th>
